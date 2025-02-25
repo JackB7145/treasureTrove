@@ -31,18 +31,18 @@ public class TreasureBoxBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "GemPickUp" || collision.gameObject.tag == "Decoy")
         {
-            if (collision.gameObject.name.StartsWith("Gem"))
-            {
-                scoreText.text = (int.Parse(scoreText.text) + 2).ToString();
-            }
-            else if (collision.gameObject.name.StartsWith("Coin"))
-            {
-                scoreText.text = (int.Parse(scoreText.text) + 1).ToString();
-            }
 
             if (collision.gameObject.tag == "GemPickUp")
             {
                 statusText.text = "Gem Captured";
+                if (collision.gameObject.name.StartsWith("Diamond"))
+                {
+                    scoreText.text = (int.Parse(scoreText.text) + 2).ToString();
+                }
+                else if (collision.gameObject.name.StartsWith("Emerald"))
+                {
+                    scoreText.text = (int.Parse(scoreText.text) + 1).ToString();
+                }
             }
             else if (collision.gameObject.tag == "Decoy")
             {
